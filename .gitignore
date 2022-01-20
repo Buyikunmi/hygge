@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+
+# Vscode counter 
+/.VSCodeCounter
+
 # testing
 /coverage
 
