@@ -1,8 +1,25 @@
+import { useRouter } from "next/router";
+
 const BreadCrumb = () => {
+  const router = useRouter();
+  const paths = router.asPath.split("/").map((e) => {
+    if (e == "") return "Home";
+    else {
+      let res = e[0].toUpperCase();
+      return res + e.slice(1);
+    }
+  });
+  console.log(paths);
+  const path = ["Home"];
+  console.log("router :>> ", router);
   return (
     <>
       <div id="breadcrumb">
-        Home Page &gt; Categories&gt; Sun Care &gt; Sun Cream 950ml
+        {paths.map((el) => (
+          <>
+            <span>{`${el}`} </span> &gt;
+          </>
+        ))}{" "}
       </div>
     </>
   );

@@ -1,21 +1,47 @@
-import { BreadCrumb, Footer, Newsletter } from "../../components";
+import {
+  BreadCrumb,
+  Footer,
+  Newsletter,
+  ProductWidget,
+} from "../../components";
 
 const category = () => {
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <BreadCrumb />
-      <span>
-        <i>-Eye Care Product</i>
-      </span>
-      <h2>
-        <b>Explore the Eye Care Products</b>
-      </h2>
+      <div className="mb-12">
+        <p className="italic font-semibold text-blue-500 text-lg ">
+          -Eye Care Product
+        </p>
+        <p className="font-bold text-2xl">
+          <b>Explore the Eye Care Products</b>
+        </p>
+      </div>
 
-      <div className="flex">
+      <div className="flex justify-center">
         {sorts.map((item) => (
           <SortWidget data={item} />
         ))}
       </div>
+      <div className="flex justify-center my-3">
+        {tags.map((tag) => (
+          <div className="flex items-center bg-gray-300 mx-4 px-3 py-2 rounded-full">
+            {tag}
+            <span className="ml-auto  text-red-300 px-3 hover:cursor-pointer">
+              X
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Begin Products Lists Section */}
+
+      <div className="flex flex-wrap justify-center mt-12 ">
+        {[...new Array(8)].map((el, i) => (
+          <ProductWidget key={i} />
+        ))}
+      </div>
+      {/* End Products Lists Section */}
       {/* Beging newsletter */}
       <Newsletter />
       {/* End newsetter */}
@@ -30,7 +56,11 @@ export default category;
 const SortWidget = ({ data: { title, options } }) => {
   return (
     <>
-      <select name={title} id={title}>
+      <select
+        className=" hover:border-gray-400 transition duration-300 cursor-pointer border-2 border-gray-200 px-4 py-2 m-2 border rounded-full"
+        name={title}
+        id={title}
+      >
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}
@@ -59,3 +89,5 @@ const sorts = [
     options: ["Color", "Category", "Price Range"],
   },
 ];
+
+const tags = ["$0 - $10", "Treatments", "Green"];

@@ -1,5 +1,7 @@
 import React from "react";
-import { BreadCrumb, Footer } from "../components";
+import { BreadCrumb, Footer, InputWidget } from "../components";
+
+import Link from "next/Link";
 
 function Register() {
   const doLogin = () => {
@@ -10,31 +12,47 @@ function Register() {
       {/* Begin Breadcrumb Section */}
       <BreadCrumb />
       {/*  End Breadcrumb Section */}
-      <span>Register</span>
-      <h2>Create an Account</h2>
+      <div className="text-center justify-center">
+        <p className="font-semibold text-blue-500 italic ">-Login</p>
+        <h2 className="text-2xl font-bold">Login into your Account</h2>
+      </div>
 
-      <form action="">
-        <div className="my-4">
-          <label htmlFor="email">Email Address</label>
-          <input type="email" name="email" className="block" required />
+      <div className="container px-6 py-3 rounded-3xl mx-auto mb-12 sm:w-9/12 md:w-6/12 lg:w-5/12">
+        <div className="">
+          <form action="">
+            <InputWidget name="email" type="email" title="Email Address" />
+            <InputWidget
+              name="password"
+              type="password"
+              title="Create Password"
+            />
+            <div className="my-4">
+              <input
+                type="checkbox"
+                name="remember"
+                className="text-green-400 bg-green-400mr-2"
+              />
+              <label htmlFor="remember">
+                I have read the &nbsp;
+                <span className="underline font-semibold">
+                  Terms & Conditions
+                </span>
+              </label>
+            </div>
+          </form>
         </div>
-        <div>
-          <label htmlFor="password">Create Password </label>
-          <input type="password" name="password" className="block" required />
+        {/* begin helper buttons */}
+        <div className="flex justify-center mb-12">
+          <button
+            className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold border tranisition duration-200 text-xl ease-out hover:shadow-lg mr-3"
+            onClick={doLogin}
+          >
+            Register
+          </button>
+          <button className=" bg-white px-6 py-3 rounded-full font-semibold border tranisition duration-200 text-xl ease-out hover:border-gray-300 hover:shadow-lg">
+            <Link href="/login">Login</Link>
+          </button>
         </div>
-        <div className="my-4">
-          <input type="checkbox" name="remember" className="mr-2" />
-          <label htmlFor="remember">Remember Me</label>
-        </div>
-
-        <button className="bg-green-500 text-white" onClick={doLogin}>
-          Login
-        </button>
-      </form>
-      {/* begin helper buttons */}
-      <div className="flex">
-        <button className="bg-gray-300 mx-4">Create Account</button>
-        <button>Forgot Password?</button>
       </div>
       {/* end helper buttons  */}
       {/* begin footer section */}
