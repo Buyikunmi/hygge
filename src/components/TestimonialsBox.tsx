@@ -1,18 +1,30 @@
 const TestimonialsBox = () => {
   return (
     <>
-      <section className="p-8 rounded-3xl bg-gray-100 lg:grid lg:grid-cols-2 lg:gap-4">
+      <section className="p-8 rounded-3xl bg-gray-100 md:grid md:grid-cols-2 md:gap-4">
         <div>
           <p className="font-semibold text-xl text-blue-600 italic">
             Our Reviews
           </p>
-          <p className="font-bold text-2xl"> What our Customers are Saying</p>
+          <p className="font-bold text-2xl">
+            {" "}
+            What our fucking Customers are Saying
+          </p>
         </div>
 
         <div id="testimonialCard">
-          <img src="#" alt="testmonial avatar" id="testmonialAvatar" />
-          <p id="testifierName">Amy Smith</p>
-          <p id="testimony">
+          <img
+            src="../assets/images/ava-1.jpg"
+            alt="testmonial avatar"
+            id="testmonialAvatar"
+            className="border border-2 border-green-500 rounded-full p-1"
+            width={64}
+            height={64}
+          />
+          <p id="testifierName" className="font-bold text-xl my-3">
+            Amy Smith
+          </p>
+          <p id="testimony" className="text-lg">
             This is the best website i have ordered something fron. I highly
             reommend
           </p>

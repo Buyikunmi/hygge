@@ -7,7 +7,7 @@ import {
   Newsletter,
   TestimonialsBox,
 } from "../components";
-import { getCategories } from "../services/fakeService";
+import { getCategories } from "../../services/fakeService";
 
 type category = {
   id: number;
@@ -15,6 +15,11 @@ type category = {
   title: string;
 };
 
+import { FaCube } from "react-icons/fa";
+
+import { AiOutlineStar } from "react-icons/ai";
+
+import { BiCube, BiUser } from "react-icons/bi";
 const CategoryWidget = ({ category: { id, icon, title } }) => {
   return (
     <>
@@ -155,28 +160,51 @@ export default function Home() {
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-3 lg:gap-5 my-8">
-          <div id="iconCard" className="bg-gray-100 p-4 rounded-xl text-center">
-            <span id="iconCardIcon">favicon</span>
-            <p id="iconTitle">Easy Returns</p>
+          <div id="iconCard" className="my-4 p-4 rounded-xl text-center">
+            <span id="iconCardIcon">
+              <BiCube
+                size={60}
+                className="bg-gray-50
+              p-3  rounded-full mx-auto"
+              />
+            </span>
+
+            <p id="iconTitle" className="font-semibold mb-2">
+              Easy Returns
+            </p>
             <p id="iconDetails">
               Our return policy is simple and that is why customers love our
               shop
             </p>
           </div>
-          <div id="iconCard" className="bg-gray-100 p-4 rounded-xl text-center">
-            <span id="iconCardIcon">favicon</span>
-            <p id="iconTitle">Easy Returns</p>
+          <div id="iconCard" className="p-4  my-4 rounded-xl text-center">
+            <span id="iconCardIcon">
+              <BiUser size={60} className=" p-3 rounded-full mx-auto" />
+            </span>
+            <p id="iconTitle" className="font-semibold mb-2">
+              Customer Service
+            </p>
             <p id="iconDetails">
-              Our return policy is simple and that is why customers love our
-              shop
+              We offer amazing customer service no matter what happens.
             </p>
           </div>
-          <div id="iconCard" className="bg-gray-100 p-4 rounded-xl text-center">
-            <span id="iconCardIcon">favicon</span>
-            <p id="iconTitle">Easy Returns</p>
+          <div
+            id="iconCard"
+            className=" bg-gray-50 my-4 p-4 rounded-xl text-center"
+          >
+            <span id="iconCardIcon">
+              <AiOutlineStar
+                size={60}
+                className="bg-gray-50 
+              p-3 rounded-full mx-auto"
+              />
+            </span>
+            <p id="iconTitle" className="font-semibold mb-2">
+              High Quality
+            </p>
             <p id="iconDetails">
-              Our return policy is simple and that is why customers love our
-              shop
+              All of our products go through very strict inspection before we
+              dispatch them.
             </p>
           </div>
         </div>

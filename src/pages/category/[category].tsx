@@ -5,16 +5,40 @@ import {
   ProductWidget,
 } from "../../components";
 
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../../services/fakeService";
+
+type product = {
+  imgSrc: string;
+  category: {
+    id: number;
+    name: string;
+    icon: string;
+    color: string;
+    title?: undefined;
+  };
+  price: number;
+  name: string;
+  discount: number;
+};
 const category = () => {
+  const router = useRouter();
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    getProducts().then((data) => setProducts(data));
+  });
+
   return (
     <div className="w-11/12 mx-auto">
       <BreadCrumb />
       <div className="mb-12">
         <p className="italic font-semibold text-blue-500 text-lg ">
-          -Eye Care Product
+          -{router.query.category} Product
         </p>
         <p className="font-bold text-2xl">
-          <b>Explore the Eye Care Products</b>
+          <b>Explore the {router.query.category} Products</b>
         </p>
       </div>
 
@@ -37,8 +61,8 @@ const category = () => {
       {/* Begin Products Lists Section */}
 
       <div className="flex flex-wrap justify-center mt-12 ">
-        {[...new Array(8)].map((el, i) => (
-          <ProductWidget key={i} />
+        {products.map((product, i) => (
+          <ProductWidget product={product} key={i} />
         ))}
       </div>
       {/* End Products Lists Section */}

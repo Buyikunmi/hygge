@@ -2,9 +2,10 @@ import BreadCrumb from "../components/BreadCrumb";
 
 import { useState } from "react";
 import { Newsletter, Footer } from "../components";
+import Link from "next/link";
 const cart = () => {
   return (
-    <div className="container mx-2">
+    <div className="">
       <BreadCrumb />
 
       <div className="text-center">
@@ -30,7 +31,9 @@ const cart = () => {
           <CartInfoBlock title="Shipping" price="15" />
           <CartInfoBlock title="Total" price="224" />
 
-          <button className="bg-green-500 text-white px-16">Checkout</button>
+          <Link href="/checkout">
+            <button className="bg-green-500 text-white px-16">Checkout</button>
+          </Link>
         </div>
         {/* end cart info */}
       </div>

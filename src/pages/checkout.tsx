@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   BreadCrumb,
   Footer,
@@ -47,7 +48,9 @@ const checkout = () => {
             <p className="ml-auto">$224</p>
           </div>
 
-          <SecondaryButton title="Edit Cart" />
+          <Link href="./cart">
+            <SecondaryButton title="Edit Cart" />
+          </Link>
         </div>
       </div>
       <Footer />

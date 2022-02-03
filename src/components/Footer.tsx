@@ -2,11 +2,11 @@ import { BrandLogo } from "./Navbar";
 
 const Footer = () => {
   return (
-    <footer className="lg:grid lg:grid-cols-4 lg:gap-4 sm:text-center md:text-left mb-16">
-      <div id="menu0">
-        <span className="mt-16">
+    <footer className="mt-20 lg:grid lg:grid-cols-4 lg:gap-4 sm:text-center md:text-left mb-16">
+      <div id="menu0" className="text-center">
+        <div className="mt-16 mx-auto w-max">
           <BrandLogo />
-        </span>
+        </div>
         <div className="mt-4 ">
           <span className=" mt-4">&copy; 2020 - All rights reserved</span>
           <div id="socialIcons" className="mt-2">

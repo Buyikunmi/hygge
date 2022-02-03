@@ -14,7 +14,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold">Login into your Account</h2>
       </div>
 
-      <div className="container px-6 py-3 rounded-3xl mx-auto sm:w-9/12 md:w-6/12 lg:w-5/12">
+      <div className="container mb-12 px-6 py-3 rounded-3xl mx-auto sm:w-9/12 md:w-6/12 lg:w-5/12">
         <div className="">
           <form action="">
             <InputWidget name="email" type="email" title="Email Address" />
@@ -41,7 +41,7 @@ const Login = () => {
           <button className=" bg-white px-6 py-3 rounded-full font-semibold border tranisition duration-200 text-xl ease-out hover:border-gray-800">
             Create Account
           </button>
-          <button className=" underline px-6 py-3 rounded-full font-semibold border tranisition duration-200 text-xl ease-in-out hover:text-green-600">
+          <button className=" underline px-6 py-3 rounded-full font-semibold tranisition duration-200 text-xl ease-in-out hover:text-green-600 ">
             Forgot Password?
           </button>
         </div>

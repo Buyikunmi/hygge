@@ -15,11 +15,11 @@ const BreadCrumb = () => {
   return (
     <>
       <div id="breadcrumb">
-        {paths.map((el) => (
+        {paths.map((el,i) => (
           <>
-            <span>{`${el}`} </span> &gt;
+            <span key={i}>{`${el}`} </span> &gt;
           </>
-        ))}{" "}
+        ))}
       </div>
     </>
   );

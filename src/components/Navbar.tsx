@@ -1,17 +1,23 @@
+import Link from "next/link";
+
 const Navbar: React.FC = () => {
   return (
     <header className="grid justify-items-center grid-cols-3 gap-4 px-8 py-3 pb-5 mb-4 sticky top-0 bg-gray-200 bg-opacity-20 z-50 backdrop-filter  shadow-sm backdrop-blur-lg ">
-      <div id="brand" className="">
-        <BrandLogo />
-      </div>
+      <Link href="./">
+        <div id="brand" className="cursor-pointer">
+          <BrandLogo />
+        </div>
+      </Link>
       <div id="navMenu">
         <button className="bg-green-500 text-white rounded-3xl font-semibold px-4 py-2 cursor-pointer hover:bg-green-600 transition duration-450">
           Menu
         </button>
       </div>
-      <div className="bg-green-500 text-white rounded-3xl font-semibold px-4 py-2 w-16 cursor-pointer hover:bg-green-600 transition duration-450">
-        Cart
-      </div>
+      <Link href="/cart">
+        <div className="bg-green-500 text-white rounded-3xl font-semibold px-4 py-2 w-16 cursor-pointer hover:bg-green-600 transition duration-450">
+          Cart
+        </div>
+      </Link>
     </header>
   );
 };
