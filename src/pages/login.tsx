@@ -1,4 +1,5 @@
-import { BreadCrumb, Footer, InputWidget } from "../components";
+import { BreadCrumb, InputWidget } from "../components";
+import { Footer } from "../sections";
 
 const Login = () => {
   const doLogin = () => {
