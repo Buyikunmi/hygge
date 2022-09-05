@@ -1,5 +1,6 @@
 import React from "react";
-import { BreadCrumb, Footer, InputWidget } from "../components";
+import { BreadCrumb, InputWidget } from "../components";
+import { Footer } from "../sections";
 
 import Link from "next/Link";
 
