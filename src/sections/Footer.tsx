@@ -1,8 +1,8 @@
-import { BrandLogo } from "./Navbar";
+import { BrandLogo } from "../components/Navbar";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 lg:grid lg:grid-cols-4 lg:gap-4 sm:text-center md:text-left mb-16">
+    <footer className="my-18 flex  justify-evenly sm:text-center md:text-left ">
       <div id="menu0" className="text-center">
         <div className="mt-16 mx-auto w-max">
           <BrandLogo />
@@ -68,9 +68,9 @@ const MenuWidget = ({ menu: { hideOnMobile, menuTitle, items } }) => {
     <>
       <div
         id={menuTitle + "-menu"}
-        className={hideOnMobile ? "hidden md:contents" : ""}
+        className={hideOnMobile && "hidden md:contents"}
       >
-        <ul className="">
+        <ul>
           <li className="font-bold text-2xl text-gray-800 pb-3">{menuTitle}</li>
 
           {items.map((item, index) => (

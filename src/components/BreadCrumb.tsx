@@ -9,16 +9,12 @@ const BreadCrumb = () => {
       return res + e.slice(1);
     }
   });
-  console.log(paths);
   const path = ["Home"];
-  console.log("router :>> ", router);
   return (
     <>
       <div id="breadcrumb">
-        {paths.map((el,i) => (
-          <>
-            <span key={i}>{`${el}`} </span> &gt;
-          </>
+        {paths.map((el, i) => (
+          <span key={i}>{`${el}`} &gt;</span>
         ))}
       </div>
     </>

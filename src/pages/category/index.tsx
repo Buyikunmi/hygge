@@ -17,7 +17,7 @@ type product = {
   name: string;
   discount: number;
 };
-const Category = () => {
+const CategoryHomePage = () => {
   const router = useRouter();
 
   const [products, setProducts] = useState([]);
@@ -38,16 +38,13 @@ const Category = () => {
       </div>
 
       <div className="flex justify-center">
-        {sorts.map((item, i) => (
-          <SortWidget key={i} data={item} />
+        {sorts.map((item) => (
+          <SortWidget data={item} />
         ))}
       </div>
       <div className="flex justify-center my-3">
-        {tags.map((tag, i) => (
-          <div
-            key={i}
-            className="flex items-center bg-gray-300 mx-4 px-3 py-2 rounded-full"
-          >
+        {tags.map((tag) => (
+          <div className="flex items-center bg-gray-300 mx-4 px-3 py-2 rounded-full">
             {tag}
             <span className="ml-auto  text-red-300 px-3 hover:cursor-pointer">
               X
@@ -70,7 +67,7 @@ const SortWidget = ({ data: { title, options } }) => {
   return (
     <>
       <select
-        className="hover:border-gray-400 transition duration-300 cursor-pointer border-2 border-gray-200 px-4 py-2 m-2 border rounded-full"
+        className=" hover:border-gray-400 transition duration-300 cursor-pointer border-2 border-gray-200 px-4 py-2 m-2 border rounded-full"
         name={title}
         id={title}
       >
@@ -105,4 +102,4 @@ const sorts = [
 
 const tags = ["$0 - $10", "Treatments", "Green"];
 
-export default Category;
+export default CategoryHomePage;

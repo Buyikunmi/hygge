@@ -7,7 +7,6 @@ const TestimonialsBox = () => {
             Our Reviews
           </p>
           <p className="font-bold text-2xl">
-            {" "}
             What our fucking Customers are Saying
           </p>
         </div>
@@ -26,7 +25,7 @@ const TestimonialsBox = () => {
           </p>
           <p id="testimony" className="text-lg">
             This is the best website i have ordered something fron. I highly
-            reommend
+            recommend
           </p>
           <div id="testimonyNavButtons">
             <button className="p-4 mx-2 bg-gray-100 active:bg-gray-300 hover:bg-gray-200">

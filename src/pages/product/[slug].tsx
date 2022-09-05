@@ -1,25 +1,60 @@
+import { GetStaticProps, GetStaticPaths } from "next";
+
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 import { useState } from "react";
-import {
-  BreadCrumb,
-  Footer,
-  Newsletter,
-  TestimonialsBox,
-} from "../../components";
+import { Footer, Newsletter, TestimonialsBox } from "../../sections";
+import { BreadCrumb } from "../../components";
 
-const ProductPage = () => {
+import { productAdded } from "../../store/cart";
+import { getProduct } from "../../../services/fakeService";
+
+type Params = {
+  params: {
+    slug: string;
+  };
+};
+export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
+  console.log("params", params);
+
+  const product = await getProduct(params.slug);
+
+  return {
+    props: { product },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  console.log("Hello GPaths");
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+const ProductPage = ({ product }) => {
+  // const product = {
+  //   id: "2131faoiu09809023",
+  //   imgSrc: "../assets/images/products/product-pic-3.png",
+  //   category: { id: 3, title: "Treatments", icon: "0", color: "yellow" },
+  //   price: 2500,
+  //   name: "Acne Skin Gel",
+  //   slug: "acne-skin-gel",
+
+  //   discount: 0.1,
+  // };
+
+  const dispatch = useDispatch();
+
   let [productCount, setProductCount] = useState<number>(0);
   const router = useRouter();
 
-  console.log(router);
+  // console.log(router);
 
   return (
     <div className="w-11/12 mx-auto">
-      {/* Begin Breadcrumb Section */}
-
       <BreadCrumb />
-      {/* End Breadcrumb Section  */}
       {/* Begin product preview section */}
 
       <section>
@@ -31,7 +66,7 @@ const ProductPage = () => {
                 className="hover:cursor-pointer hover:bg-gray-200 transition duration-200 p-auto w-max bg-gray-100 rounded-2xl my-2"
               >
                 <img
-                  src="../assets/images/card-pic-1.png"
+                  src={product.imgSrc}
                   alt="product-pic-1"
                   width="148px"
                   height="148px"
@@ -42,7 +77,7 @@ const ProductPage = () => {
 
           <div id="productPreviewBox" className="relative w-full mr-8">
             <img
-              src="../assets/images/card-pic-1.png"
+              src={product.imgSrc}
               alt="preview box"
               className="bg-gray-100 rounded-2xl "
               height={504}
@@ -61,7 +96,7 @@ const ProductPage = () => {
             </p>
 
             <h2 id="productName" className="font-bold text-3xl">
-              Sun Cream
+              {product.name}
             </h2>
 
             <div className="d-inline my-6 flex align-items-center ">
@@ -69,10 +104,12 @@ const ProductPage = () => {
                 id="productCategory"
                 className="bg-yellow-100 text-yellow-600  font-bold px-3 py-2 rounded-full mr-8"
               >
-                SUN CARE
+                {product.category.title}
               </span>
               <span id="productPrice">
-                <span className="text-gray-500 mr-3 text-lg"> $30 </span>
+                <span className="text-gray-500 mr-3 text-lg">
+                  ${Math.ceil(product.price / 100)}
+                </span>
                 <span id="discountPrice" className="font-bold text-2xl">
                   $20
                 </span>
@@ -85,7 +122,6 @@ const ProductPage = () => {
             </div>
 
             <div className="flex">
-              {" "}
               <div id="productCounter" className="border rounded-full w-max">
                 <button
                   onClick={() =>
@@ -103,7 +139,16 @@ const ProductPage = () => {
                   &nbsp;+
                 </button>
               </div>
-              <button className="ml-4 bg-green-500 px-3 py-2 rounded-full font-bold text-white">
+              <button
+                className="ml-4 bg-green-500 px-3 py-2 rounded-full font-bold text-white"
+                onClick={() =>
+                  dispatch(
+                    productAdded({
+                      product: { ...product, noInCart: productCount },
+                    })
+                  )
+                }
+              >
                 Add to Cart
               </button>
             </div>
@@ -142,15 +187,9 @@ const ProductPage = () => {
         </div>
       </section>
       {/* End product features section */}
-      {/* Begin testimonials section */}
       <TestimonialsBox />
-      {/* End testimonials section*/}
-      {/* Begin newsletter section  */}
       <Newsletter />
-      {/* End newsletter section */}
-      {/* Begin Footer Section */}
       <Footer />
-      {/* End Footer Section */}
     </div>
   );
 };

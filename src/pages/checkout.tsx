@@ -1,12 +1,16 @@
 import Link from "next/link";
-import {
-  BreadCrumb,
-  Footer,
-  InputWidget,
-  SecondaryButton,
-} from "../components";
+import { BreadCrumb, InputWidget, SecondaryButton } from "../components";
 
-const checkout = () => {
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useSelector, useDispatch } from "react-redux";
+
+import { Footer } from "../sections";
+import { productRemoved } from "../store/cart";
+
+// import cart from "../store/cart";/
+const Checkout = () => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <div className="mx-auto w-11/12 ">
       <BreadCrumb />
@@ -41,13 +45,13 @@ const checkout = () => {
 
         <div className="w-6/12 h-min ml-auto border border-2 border-gray-200 rounded-3xl p-8">
           <p className="font-bold text-gray-800 text-2xl mb-8">My Cart</p>
-          <MiniCartItem />
-          <MiniCartItem />
+          {!cart.length
+            ? "Your cart is empty"
+            : cart.map((product, i) => <MiniCartItem product={product} />)}
           <div className="flex font-bold text-2xl px-3 my-6">
             <p className="">Total</p>
             <p className="ml-auto">$224</p>
           </div>
-
           <Link href="./cart">
             <SecondaryButton title="Edit Cart" />
           </Link>
@@ -58,22 +62,28 @@ const checkout = () => {
   );
 };
 
-const MiniCartItem = () => {
+const MiniCartItem = ({ product }) => {
+  const dispatch = useDispatch();
   return (
     <div className="flex  items-center p-2 rounded-2xl  shadow-sm border-gray-100">
       <img
-        src="assets/images/products/product-pic-4.png"
+        src={product.imgSrc}
         alt=""
         height="96px"
         width="96px"
         className="bg-gray-200 rounded-lg"
       />
       <div className="w-8/12 px-4">
-        <p className="font-semibold text-xl ">Eye Mask Gel</p>
-        <p className="font-semibold text-gray-600 text-md mt-2">$180</p>
+        <p className="font-semibold text-xl ">{product.name}</p>
+        <p className="font-semibold text-gray-600 text-md mt-2">
+          ${Math.ceil(product.price / 100)}
+        </p>
       </div>
       <div>
-        <button className="rounded-full border border-2 px-4  py-2 border-gray-200 text-gray-800 text-xl hover:bg-gray-300 transition duration-200 hover:text-white">
+        <button
+          className="rounded-full border border-2 px-4  py-2 border-gray-200 text-gray-800 text-xl hover:bg-gray-300 transition duration-200 hover:text-white"
+          onClick={() => dispatch(productRemoved({ product }))}
+        >
           &times;
         </button>
       </div>
@@ -81,4 +91,4 @@ const MiniCartItem = () => {
   );
 };
 
-export default checkout;
+export default Checkout;
