@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { RootStateOrAny, useSelector } from "react-redux";
 const Navbar: React.FC = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: RootStateOrAny) => state.cart);
   return (
     <>
       {/* <MobileHeader customClass={""} /> */}
