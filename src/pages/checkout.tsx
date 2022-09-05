@@ -2,14 +2,14 @@ import Link from "next/link";
 import { BreadCrumb, InputWidget, SecondaryButton } from "../components";
 
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useSelector, useDispatch } from "react-redux";
+import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 
 import { Footer } from "../sections";
 import { productRemoved } from "../store/cart";
 
 // import cart from "../store/cart";/
 const Checkout = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: RootStateOrAny) => state.cart);
 
   return (
     <div className="mx-auto w-11/12 ">
@@ -21,7 +21,6 @@ const Checkout = () => {
         </span>
         <p className="font-bold text-2xl">Checkout</p>
       </div>
-      <div id="steps">1 2 3 4</div>
 
       <div className="flex gap-6 mb-12">
         <div className="p-12 border border-gray-200 border-2 rounded-3xl w-5/12 h-min">

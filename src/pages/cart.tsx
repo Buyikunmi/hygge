@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { RootStateOrAny, useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ import {
 } from "../store/cart";
 
 const cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: RootStateOrAny) => state.cart || 0);
 
   const dispatch = useDispatch();
 
