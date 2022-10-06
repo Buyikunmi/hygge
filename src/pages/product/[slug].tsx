@@ -18,10 +18,10 @@ type Params = {
 export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   console.log("params", params);
 
-  const product = await getProduct(params.slug);
+  const products = await getProduct(params.slug);
 
   return {
-    props: { product },
+    props: { products },
   };
 };
 
@@ -33,17 +33,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const ProductPage = ({ product }) => {
-  // const product = {
-  //   id: "2131faoiu09809023",
-  //   imgSrc: "../assets/images/products/product-pic-3.png",
-  //   category: { id: 3, title: "Treatments", icon: "0", color: "yellow" },
-  //   price: 2500,
-  //   name: "Acne Skin Gel",
-  //   slug: "acne-skin-gel",
+const ProductPage = ({ products }) => {
+  const product = {
+    id: "2131faoiu09809023",
+    imgSrc: "../assets/images/products/product-pic-3.png",
+    category: { id: 3, title: "Treatments", icon: "0", color: "yellow" },
+    price: 2500,
+    name: "Acne Skin Gel",
+    slug: "acne-skin-gel",
 
-  //   discount: 0.1,
-  // };
+    discount: 0.1,
+  };
 
   const dispatch = useDispatch();
 
@@ -66,7 +66,7 @@ const ProductPage = ({ product }) => {
                 className="hover:cursor-pointer hover:bg-gray-200 transition duration-200 p-auto w-max bg-gray-100 rounded-2xl my-2"
               >
                 <img
-                  src={product.imgSrc}
+                  src={product.imgSrc ? product.imgSrc : ""}
                   alt="product-pic-1"
                   width="148px"
                   height="148px"
@@ -77,7 +77,7 @@ const ProductPage = ({ product }) => {
 
           <div id="productPreviewBox" className="relative w-full mr-8">
             <img
-              src={product.imgSrc}
+              src={product.imgSrc ? product.imgSrc : ""}
               alt="preview box"
               className="bg-gray-100 rounded-2xl "
               height={504}
