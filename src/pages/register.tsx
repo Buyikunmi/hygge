@@ -2,7 +2,7 @@ import React from "react";
 import { BreadCrumb, InputWidget } from "../components";
 import { Footer } from "../sections";
 
-import Link from "next/Link";
+import Link from "next/link";
 
 function Register() {
   const doLogin = () => {
