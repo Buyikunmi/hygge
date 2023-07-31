@@ -95,21 +95,6 @@ export default function Home() {
       </main>
       {/* End Hero Section  */}
 
-      {/* Begin Categories Section */}
-      <section id="categories" className="mt-8">
-        <SectionHeader
-          slogan="-The Categories"
-          title="Browse by Categories"
-          center={false}
-        />
-        <div className="flex my-4">
-          {categories.map((category, index) => (
-            <CategoryWidget category={category} />
-          ))}
-        </div>
-      </section>
-
-      {/*  End Categories section */}
       {/* Begin Products Section */}
 
       <section className="mt-8">
@@ -120,6 +105,7 @@ export default function Home() {
             Explore our Products
           </p>
         </div>
+
         <div id="products" className="overflow-x">
           {featuredProducts.map((featuredProduct, i) => (
             <ProductWidget product={featuredProduct} />
@@ -187,11 +173,6 @@ export default function Home() {
       </section>
 
       {/* End Why Us */}
-
-      {/* Begin Testimonials */}
-
-      <TestimonialsBox />
-      {/*  End testimonials */}
 
       {/* Begin Newsletter Section */}
 

@@ -9,9 +9,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <Navbar />
-        <div className="md:w-11/12 mx-auto">
-          <Component {...pageProps} />
-        </div>
+
+        <Component {...pageProps} />
       </Provider>
     </>
   );

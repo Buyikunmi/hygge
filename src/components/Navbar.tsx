@@ -5,17 +5,12 @@ const Navbar: React.FC = () => {
   return (
     <>
       {/* <MobileHeader customClass={""} /> */}
-      <header className="sticky bg-gray-500 top-0 grid justify-items-center grid-cols-3 gap-4 px-8 py-3 pb-5 mb-4 bg-opacity-20 z-50 ">
+      <header className="sticky bg-gray-500 flex px-8 py-4 top-0 bg-white z-50 justify-between">
         <Link href="./">
           <div id="brand" className="cursor-pointer">
             <BrandLogo />
           </div>
         </Link>
-        <div id="navMenu">
-          <button className="bg-green-500 text-white rounded-3xl font-semibold px-4 py-2 cursor-pointer hover:bg-green-600 transition duration-450">
-            Menu
-          </button>
-        </div>
         <Link href="/cart">
           <div className="relative bg-green-500 text-white rounded-3xl font-semibold px-4 py-2 w-16 cursor-pointer hover:bg-green-600 transition duration-450">
             <span>Cart</span>

@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: Poppins;
-  src: url("./Montserrat-Light.otf");
+/* @font-face {
+  font-family: Gotham;
+  src: url("./GothamMedium.ttf");
 }
 
 * {
-  font-family: Poppins;
-}
+  font-family: Gotham !important;
+} */

@@ -55,22 +55,19 @@ const cart = () => {
           center={false}
         />
         <button
-          className="ml-auto border border-gray-200 hover:border-gray-600 transition duration-200 ease-out py-4 rounded-full font-bold text-xl px-4 text-gray-400 hover:text-gray-800"
+          className=" border border-gray-200 hover:border-gray-600 transition duration-200 ease-out py-4 rounded-full font-bold text-xl px-4 text-gray-400 hover:text-gray-800"
           onClick={() => dispatch(cartEmptied({ cart: [] }))}
         >
           Clear All
         </button>
       </div>
-      <div className="flex w-10/12 mx-auto">
-        {/* begin cart items */}
+      <div className="md:flex w-11/12 justify-between mx-auto">
         <div>
           {cart.map((product, i) => (
             <CartItem key={i} product={product} />
           ))}
         </div>
-        {/* end cart items */}
-        {/* begin cart info */}
-        <div className="border  border-gray-500 border-2 p-12 mt-8 rounded-3xl h-min ml-auto ">
+        <div className="border  border-gray-500 border-2 p-8 mt-8 rounded-3xl h-min  ">
           <p className="text-center font-bold text-xl text-gray-600 mb-4">
             Cart Total
           </p>
@@ -89,7 +86,6 @@ const cart = () => {
             </button>
           </Link>
         </div>
-        {/* end cart info */}
       </div>
 
       {/* Begin Newsletter */}

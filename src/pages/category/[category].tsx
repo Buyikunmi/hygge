@@ -103,6 +103,6 @@ const sorts = [
   },
 ];
 
-const tags = ["$0 - $10", "Treatments", "Green"];
+const tags = ["$0 - $10", "Treatments", "green"];
 
 export default Category;

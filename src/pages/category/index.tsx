@@ -84,7 +84,7 @@ const SortWidget = ({ data: { title, options } }) => {
 const sorts = [
   {
     title: "Color",
-    options: ["Red", "Green", "Blue"],
+    options: ["Red", "green", "Blue"],
   },
   {
     title: "Price Range",
@@ -100,6 +100,6 @@ const sorts = [
   },
 ];
 
-const tags = ["$0 - $10", "Treatments", "Green"];
+const tags = ["$0 - $10", "Treatments", "green"];
 
 export default CategoryHomePage;
